@@ -1,5 +1,6 @@
 import logo from "@/assets/logo.jpg";
 import Link from "next/link";
+import { Suspense } from "react";
 
 export default function HomePage() {
   return (

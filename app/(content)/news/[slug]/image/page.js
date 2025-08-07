@@ -1,10 +1,9 @@
-import { DUMMY_NEWS } from "@/dummy-news";
+import { getNewsItem } from "@/lib/getNews";
 import { notFound } from "next/navigation";
 
-export default function PicturePage({ params }) {
-  console.log("SLUG PARAMS SENT DOWN THE TREE", params);
-  const newsItemSlug = params.slug;
-  const newsItem = DUMMY_NEWS.find((item) => item.slug === newsItemSlug);
+export default async function PicturePage({ params }) {
+  const newsItemSlug = await params.slug;
+  const newsItem = await getNewsItem(newsItemSlug);
 
   if (!newsItem) notFound();
 
